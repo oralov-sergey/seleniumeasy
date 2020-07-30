@@ -11,6 +11,7 @@ public class Part1 extends SuperClass {
      waitElementAndClick("//button[@onclick='showInput();']");
      String actualText = waitElementAndGetText("//span[@id='display']");
      equalsTwoString(textExpected, actualText);
+     //TEST
  }
 @Test
  public void Test2() {
