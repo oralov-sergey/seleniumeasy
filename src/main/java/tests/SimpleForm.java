@@ -1,19 +1,23 @@
+package tests;
+
+import core.SuperClass;
 import org.junit.Test;
 
 public class SimpleForm extends SuperClass {
 
  @Test
- public void Test() {
+ public void singleInputField() {
      String textExpected = "Test1";
-     getBrowser("https://www.seleniumeasy.com/test/basic-first-form-demo.html");
-     waitElementAndClick("//*[@id=\"at-cv-lightbox-button-holder\"]/a[2]");
-     waitElementAndSendKeys("//input[@id='user-message']", textExpected);
-     waitElementAndClick("//button[@onclick='showInput();']");
-     String actualText = waitElementAndGetText("//span[@id='display']");
+     simpleFormPage.getUrl();
+     simpleFormPage.closeExpectedPopup();
+     simpleFormPage.sentTextToUserMessageInput(textExpected);
+     simpleFormPage.clickShowMessageButton();
+     String actualText = simpleFormPage.getDisplayedText();
      equalsTwoString(textExpected, actualText);
+     // well done
  }
 @Test
- public void Test2() {
+ public void twoInputFields() {
      String num1 = "5";
      String num2 = "6";
      int sum = Integer.parseInt(num1) + Integer.parseInt(num2);
@@ -26,7 +30,9 @@ public class SimpleForm extends SuperClass {
      waitElementAndClick("//button[@onclick='return total()']");
      String actualText = waitElementAndGetText("//span[contains(@id,'displayvalue')]");
      equalsTwoString(sumString, actualText);
+     // before well done
  }
+
 
 
 
