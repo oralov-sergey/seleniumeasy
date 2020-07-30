@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class Part2 extends SuperClass {
+public class CheckBox extends SuperClass {
     @Test
     public void test1() {
         getBrowser("https://www.seleniumeasy.com/test/basic-first-form-demo.html");

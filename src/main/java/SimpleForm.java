@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-public class Part1 extends SuperClass {
+public class SimpleForm extends SuperClass {
 
  @Test
  public void Test() {
