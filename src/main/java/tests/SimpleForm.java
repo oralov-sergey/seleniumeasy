@@ -9,7 +9,7 @@ public class SimpleForm extends SuperClass {
  public void singleInputField() {
      String textExpected = "Test1";
      simpleFormPage.getUrl();
-     simpleFormPage.closeExpectedPopup();
+     otherPage.closeExpectedPopup();
      simpleFormPage.sentTextToUserMessageInput(textExpected);
      simpleFormPage.clickShowMessageButton();
      String actualText = simpleFormPage.getDisplayedText();

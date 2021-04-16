@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObject.CheckBoxPage;
-import pageObject.SimpleFormPage;
+import pageObject.*;
 import tests.CheckBox;
 
 import static org.junit.Assert.assertEquals;
@@ -19,14 +19,20 @@ public class SuperClass {
     private static WebDriverWait wait;//created variable
     public SimpleFormPage simpleFormPage;//created instance for page Simple Form
     public CheckBoxPage checkBoxPage;
+    public RadioButtonPage radioButtonPage;
+    public OtherPage otherPage;
+    public SelectListPage selectListPage;
 
     @Before
     public void startWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");//path(way) to start WebDriver
+        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriverNew.exe");//path(way) to start WebDriver
         driver = new ChromeDriver();//class instance
         wait = new WebDriverWait(driver, TIME_OUT_IN_SECONDS);//created class instance of WebdriverWait and gave it 2 parameters
         this.checkBoxPage = new CheckBoxPage();
         this.simpleFormPage = new SimpleFormPage();
+        this.radioButtonPage = new RadioButtonPage();
+        this.otherPage = new OtherPage();
+        this.selectListPage = new SelectListPage();
     }
 
     public void waitElementAndClick(String xpath) {
@@ -47,6 +53,10 @@ public class SuperClass {
 
     public String waitElementAndGetText(String xpath) { //warning! instead of "void" write type of variable. The meaning returns.
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();//warning! Must be wrote "return"; gave it xpath, got and after returned  text.
+    }
+    public void selectValueDropdown (String locator, String textExpected) {
+        Select dropdown = new Select(driver.findElement(By.xpath(locator)));
+        dropdown.selectByVisibleText(textExpected);
     }
 
     @After
