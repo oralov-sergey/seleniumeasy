@@ -22,6 +22,7 @@ public class SuperClass {
     public RadioButtonPage radioButtonPage;
     public OtherPage otherPage;
     public SelectListPage selectListPage;
+    public GroupRadioButtonPage groupRadioButtonPage;
 
     @Before
     public void startWebDriver() {
@@ -33,13 +34,17 @@ public class SuperClass {
         this.radioButtonPage = new RadioButtonPage();
         this.otherPage = new OtherPage();
         this.selectListPage = new SelectListPage();
+        this.groupRadioButtonPage = new GroupRadioButtonPage();
     }
 
     public void waitElementAndClick(String xpath) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).click();//executed "until" gave it xpath and performed click
     }
+    public void waitElementAndClickUsingFormat(String xpath, String name) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(xpath, name)))).click();
+    }
 
-    public void getBrowser(String url) {
+        public void getBrowser(String url) {
         driver.get(url);//executed get command with value url (opened page by known url)
     }
 
@@ -54,6 +59,8 @@ public class SuperClass {
     public String waitElementAndGetText(String xpath) { //warning! instead of "void" write type of variable. The meaning returns.
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath))).getText();//warning! Must be wrote "return"; gave it xpath, got and after returned  text.
     }
+
+
     public void selectValueDropdown (String locator, String textExpected) {
         Select dropdown = new Select(driver.findElement(By.xpath(locator)));
         dropdown.selectByVisibleText(textExpected);
