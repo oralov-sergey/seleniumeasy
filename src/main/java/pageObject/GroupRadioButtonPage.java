@@ -34,11 +34,11 @@ public class GroupRadioButtonPage extends SuperClass {
 
 
       /* public void compareChekedText(){
-        equalsTwoString("Sex : "+groupRa oButtonPage.cho An Clik("Female")+"\n" + "Age group:"+groupRadio onPage.c ndClik ""),groupRadio onPage.getCheckingText());
+        equalsTwoString("Sex : "+getCheckingText(CHOOSE_SEX,"Female")+"\n" + "Age group:"+),groupRadioButtonPage.getCheckingText());
             System.out.println(getCheckingText());
-        }
-      как?
-        */
+        }*/
+
+
 
 }
 

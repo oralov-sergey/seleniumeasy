@@ -12,5 +12,6 @@ public class OtherPage extends SuperClass {
             //no popup
         }
     }
+
 }
 
