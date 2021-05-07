@@ -2,6 +2,7 @@ package tests;
 
 import core.SuperClass;
 import org.junit.Test;
+import org.openqa.selenium.interactions.Actions;
 
 public class CheckBox extends SuperClass {
     @Test
@@ -12,6 +13,7 @@ public class CheckBox extends SuperClass {
         //String abc = checkBoxPage.getCheckedText();
         //equalsTwoString("Success - Check box is checked", abc);
         equalsTwoString("Success - Check box is checked", checkBoxPage.getCheckedText());
+
     }
     @Test
     public void multipleCheckbox(){

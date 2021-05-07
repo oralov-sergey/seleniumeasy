@@ -2,18 +2,18 @@ package core;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.*;
-import tests.CheckBox;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,6 +31,7 @@ public class SuperClass {
     public JavaScriptAlertBoxPage javaScriptAlertBoxPage;
     public JavaScriptConfirmBoxPage javaScriptConfirmBoxPage;
     public JavaScriptAlertPromptBoxPage javaScriptAlertPromptBoxPage;
+    public WindowPopupPage windowPopupPage;
 
 
     @Before
@@ -48,6 +49,16 @@ public class SuperClass {
         this.javaScriptAlertBoxPage = new JavaScriptAlertBoxPage();
         this.javaScriptConfirmBoxPage = new JavaScriptConfirmBoxPage();
         this.javaScriptAlertPromptBoxPage = new JavaScriptAlertPromptBoxPage();
+        this.windowPopupPage = new WindowPopupPage();
+    }
+
+    public void waitElement(String xpath) {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+    }
+
+    public void scrollIntoView(String xpath) {
+        WebElement element = driver.findElement(By.xpath(xpath));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public void waitElementAndClick(String xpath) {
@@ -80,27 +91,54 @@ public class SuperClass {
         dropdown.selectByVisibleText(textExpected);
     }
 
+public void pressCtrlAndSelectSeveralElementsUsingFormat(String xpath, String Place){
 
+    Actions actions = new Actions(driver); // имитация нажатий на клавиатуру
+    actions.keyDown(Keys.LEFT_CONTROL)
+            .click(driver.findElement(By.xpath(String.format(xpath,Place))))
+            .keyUp(Keys.LEFT_CONTROL)
+            .build()
+            .perform();
+}
 
-    public void acceptAlert() {
+    public void workingWithAlert(String action) {
         Alert alert = driver.switchTo().alert();
-        alert.accept();
-          }
+        switch (action) {
+            case "accept":
+                alert.accept();
+                break;
+            case "dismiss":
+                alert.dismiss();
+                break;
 
-    public void dismissAlert() {
-        Alert alert = driver.switchTo().alert();
-        alert.dismiss();
+        }
     }
+
 
     public void sendKeysAlert(String text) {
         Alert alert = driver.switchTo().alert();
         alert.sendKeys(text);
            }
 
+    public void switchToWindowPopUp(int numberOfWindow) {
+
+        Set<String> abc = driver.getWindowHandles();
+        List<String> windowStrings = new ArrayList<>(abc);
+        driver.switchTo().window(windowStrings.get(numberOfWindow));
+        /*for (String childWindow : driver.getWindowHandles()){
+            driver.switchTo().window(childWindow);
+
+
+        }*/
 
 
 
+    }
 
+
+    public String getCurrentURL(){
+        return driver.getCurrentUrl();
+    }
 
 
 
