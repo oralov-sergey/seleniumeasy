@@ -4,7 +4,7 @@ import core.SuperClass;
 import org.junit.Test;
 import org.openqa.selenium.interactions.Actions;
 
-public class CheckBox extends SuperClass {
+public class CheckBoxTest extends SuperClass {
     @Test
     public void singleCheckbox() {
         checkBoxPage.getUrl();

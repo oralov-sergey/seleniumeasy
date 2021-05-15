@@ -3,7 +3,7 @@ package tests;
 import core.SuperClass;
 import org.junit.Test;
 
-public class SelectList extends SuperClass {
+public class SelectListTest extends SuperClass {
     @Test
     public void selectADayFromDropdown(){
         String day = "Friday";

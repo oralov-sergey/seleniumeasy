@@ -3,7 +3,7 @@ package tests;
 import core.SuperClass;
 import org.junit.Test;
 
-public class JavaScriptAlertBox extends SuperClass {
+public class JavaScriptAlertBoxTest extends SuperClass {
     @Test
     public void javaScriptAlertBox() {
         javaScriptAlertBoxPage.getUrl();

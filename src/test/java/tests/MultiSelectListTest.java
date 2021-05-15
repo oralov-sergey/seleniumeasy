@@ -3,7 +3,7 @@ package tests;
 import core.SuperClass;
 import org.junit.Test;
 
-public class MultiSelectList extends SuperClass {
+public class MultiSelectListTest extends SuperClass {
     @Test
     public void selectOneplaceInSelectBox(){
 

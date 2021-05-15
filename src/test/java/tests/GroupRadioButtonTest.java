@@ -4,7 +4,7 @@ import core.SuperClass;
 import org.junit.Test;
 import pageObject.GroupRadioButtonPage;
 
-public class GroupRadioButton extends SuperClass {
+public class GroupRadioButtonTest extends SuperClass {
 
     @Test
     public void groupRadioButton() {

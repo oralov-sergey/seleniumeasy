@@ -3,7 +3,7 @@ package tests;
 import core.SuperClass;
 import org.junit.Test;
 
-public class WindowPopup extends SuperClass {
+public class WindowPopupTest extends SuperClass {
     @Test
     public void windowpopup(){
         windowPopupPage.getUrl();

@@ -3,7 +3,8 @@ package tests;
 import core.SuperClass;
 import org.junit.Test;
 
-public class RadioButton extends SuperClass {
+
+public class RadioButtonTest extends SuperClass {
      @Test
      public void radioButton() {
      radioButtonPage.getUrl();

@@ -3,7 +3,7 @@ package tests;
 import core.SuperClass;
 import org.junit.Test;
 
-public class SimpleForm extends SuperClass {
+public class SimpleFormTest extends SuperClass {
 
  @Test
  public void singleInputField() {

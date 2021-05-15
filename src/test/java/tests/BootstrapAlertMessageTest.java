@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class BootstrapAlertMessage extends SuperClass {
+public class BootstrapAlertMessageTest extends SuperClass {
     private String color;
     private String messageXpath;
     private String messageText;
@@ -17,7 +17,7 @@ public class BootstrapAlertMessage extends SuperClass {
     private String crossButtonIndex;
 
 
-    public BootstrapAlertMessage(String color, String messageXpath, String messageText, String buttonXpath, String crossButtonIndex) {
+    public BootstrapAlertMessageTest(String color, String messageXpath, String messageText, String buttonXpath, String crossButtonIndex) {
         this.color = color;
         this.messageXpath = messageXpath;
         this.messageText = messageText;
