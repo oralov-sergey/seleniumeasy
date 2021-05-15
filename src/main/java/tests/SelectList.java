@@ -10,6 +10,7 @@ public class SelectList extends SuperClass {
         String expectedDay = String.format("Day selected :- %s",day);
 
         selectListPage.getUrl();
+        otherPage.closeExpectedPopup();
         selectListPage.selectAdayDropdown(day);
         selectListPage.getDisplayedText();
         String actualText = selectListPage.getDisplayedText();

@@ -9,6 +9,7 @@ public class GroupRadioButton extends SuperClass {
     @Test
     public void groupRadioButton() {
         groupRadioButtonPage.getUrl();
+        otherPage.closeExpectedPopup();
         groupRadioButtonPage.chooseSexAndClik("Female");
         groupRadioButtonPage.chooseAgeAndClick("5 to 15");
         groupRadioButtonPage.clikGetValue();
